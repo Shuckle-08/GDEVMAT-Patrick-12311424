@@ -27,5 +27,5 @@ void randomizeColor(){
   r = int(random(255));
   g = int(random(255));
   b = int(random(255));
-  a = 50 + int(random(50));
+  a = int(random(50, 100));
 }
