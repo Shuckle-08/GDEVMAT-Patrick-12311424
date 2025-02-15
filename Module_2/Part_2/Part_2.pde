@@ -1,3 +1,5 @@
+int timer;
+
 void setup(){
   size(1020, 720, P3D);
   camera(0, 0, -(height/2.0) / tan(PI*30.0 / 180.0), 0, 0, 0, 0, -1, 0);
@@ -5,6 +7,9 @@ void setup(){
 }
 
 void draw(){
+  timer+=1;
+  //println(timer);
+  
   int r = int(random(0, 255));
   int g = int(random(0, 255));
   int b = int(random(0, 255));
@@ -26,4 +31,9 @@ void draw(){
 
   fill(r, g, b, alpha);
   circle(x, y, extent);
+  
+  if (timer == 300){
+    background(255);
+    timer = 0;
+  }
 }
