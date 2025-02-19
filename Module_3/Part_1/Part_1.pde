@@ -3,21 +3,18 @@ void setup(){
   camera(0, 0, Window.eyeZ, 0, 0, 0, 0, -1, 0);
 }
 
-PVector position = new PVector();
-PVector speed = new PVector(5, 8);
+Walker myWalker = new Walker();
 
 void draw(){
+  //Flush
   background(255);
   
-  position.add(speed);
+  //Actions
+  myWalker.randomWalk();
+  myWalker.randomWalkBiased();
+  myWalker.moveAndBounce();
   
-  if ((position.x > Window.right) || (position.x < Window.left)){
-    speed.x *= -1;
-  }
-  if ((position.y > Window.top) || (position.y < Window.bottom)){
-    speed.y *= -1;
-  }
-  
+  //Render
   fill (182, 52, 100);
-  circle(position.x, position.y, 50);
+  myWalker.render();
 }
